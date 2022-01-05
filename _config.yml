@@ -39,12 +39,12 @@ instagram:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: eunhwa Park
+  name: SmartNote
   email: ekdusp90@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://instagram.com/eunhwa_p99      # change to your twitter homepage
     - https://github.com/eunhwa99       # change to your github homepage
+    - https://instagram.com/eunhwa_p99      # change to your twitter homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
