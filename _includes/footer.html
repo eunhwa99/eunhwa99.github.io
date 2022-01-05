@@ -1,5 +1,9 @@
 © {{ 'now' | date: "%Y" }} {{ site.social.name }}. {% if site.data.locales[lang].copyright.brief %} {{ site.data.locales[lang].copyright.brief }} {% endif %}
 
+<!--
+  The Footer
+-->
+
 <footer class="d-flex w-100 justify-content-center">
   <div class="d-flex justify-content-between align-items-center text-muted">
     <div class="footer-left">
@@ -13,7 +17,7 @@
       </p>
     </div>
 
-   <!-- <div class="footer-right">
+    <div class="footer-right">
       <p class="mb-0">
         {% capture _platform %}
           <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
@@ -29,8 +33,8 @@
         }}
 
       </p>
-    </div> -->
+    </div>
 
-  </div>
+  </div> <!-- div.d-flex -->
 </footer>
 {% capture _platform %} Jekyll {% endcapture %} {% capture _theme %} Chirpy {% endcapture %} {{ site.data.locales[lang].meta | default: 'Powered by :PLATFORM with :THEME theme.' | replace: ':PLATFORM', _platform | replace: ':THEME', _theme }} 
