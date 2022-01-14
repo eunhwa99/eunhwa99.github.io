@@ -22,7 +22,8 @@ tags:
    - 아이템에 조건을 걸어 2개의 컬렉션으로 나누어 줌
    - **collection.partition {it.조건}**: true 인지 false 인지에 따라 2개의 컬렉션으로 분리
       - 2개의 컬렉션은 2개의 객체를 담을 수 있는 pair라는 클래스 객체로 반환 --> 각각의 컬렉션을 first, second로 참조하여 사용
-      - 혹은 변수 사용하여 pair을 직접 받음: val(pair1, pair2) = collection.partition{it.조건}
+      - 혹은 변수 사용하여 pair을 직접 받음: val(pair1, pair2) = collection.partition{it.조건}  
+  
 여기까지 내용을 코드로 확인해보자.   
 
 ~~~kotlin
@@ -43,17 +44,16 @@ fun main(){
 [Food(name=Noodle, price=5000)]
     println(pair2) // [Food(name=Noodle, price=5000)]
 }
-~~~  
-
-
-foodList의 가격 중 17000원이 Chicken과 Fish에서 중복되는데, 가격기준으로 groupBy한 경우, 17000 key 값에 Fish 속성이 들어간 것을 확인할 수 있다. (Map의 특성, Chicken을 Fish가 대체한 결과)
+~~~
+### 참고사항
+- foodList의 가격 중 17000원이 Chicken과 Fish에서 중복되는데, 가격기준으로 groupBy한 경우, 17000 key 값에 Fish 속성이 들어간 것을 확인할 수 있다. (Map의 특성, Chicken을 Fish가 대체한 결과)
 ---
-4. flatMap
+1. flatMap
    - 아이템마다 만들어진 컬렉션을 합쳐서 반환하는 함수
    - **collection.flatMap{listOf(it*3, it+3)}** : 중괄호 안에서 아이템마다 새로운 컬렉션을 생성하면 이를 합쳐서 하나의 컬렉션으로 반환
-5. getOrElse
+2. getOrElse
    - **collection.getOrElse(인덱스){default 값}**: 인덱스 위치에 아이템이 있으면 아이템을 반환하고, 없으면 지정한 default 값 반환하는 함수
-6. zip
+3. zip
    - **collectionA zip collectionB**: 컬렉션 두 개의 아이템을 1:1로 pair 클래스의 객체로 만들어 list로 반환 (새 컬렉션을 만들어줌)
       - 결과 List의 아이템 개수는 더 작은 컬렉션을 따라감
 위 3가지 함수를 코드로 확인해보자.  
