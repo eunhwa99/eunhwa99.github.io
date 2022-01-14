@@ -44,7 +44,7 @@ fun main(){
 [Food(name=Noodle, price=5000)]
     println(pair2) // [Food(name=Noodle, price=5000)]
 }
-~~~
+~~~  
 ### 참고사항
 - foodList의 가격 중 17000원이 Chicken과 Fish에서 중복되는데, 가격기준으로 groupBy한 경우, 17000 key 값에 Fish 속성이 들어간 것을 확인할 수 있다. (Map의 특성, Chicken을 Fish가 대체한 결과)
 ---
