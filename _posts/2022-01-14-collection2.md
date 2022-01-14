@@ -23,7 +23,7 @@ tags:
    - **collection.partition {it.조건}**: true 인지 false 인지에 따라 2개의 컬렉션으로 분리
       - 2개의 컬렉션은 2개의 객체를 담을 수 있는 pair라는 클래스 객체로 반환 --> 각각의 컬렉션을 first, second로 참조하여 사용
       - 혹은 변수 사용하여 pair을 직접 받음: val(pair1, pair2) = collection.partition{it.조건}
-여기까지 내용을 코드로 확인해보자.  
+여기까지 내용을 코드로 확인해보자.   
 
 ~~~kotlin
 fun main(){
