@@ -23,8 +23,9 @@ tags:
    - **collection.partition {it.조건}**: true 인지 false 인지에 따라 2개의 컬렉션으로 분리
       - 2개의 컬렉션은 2개의 객체를 담을 수 있는 pair라는 클래스 객체로 반환 --> 각각의 컬렉션을 first, second로 참조하여 사용
       - 혹은 변수 사용하여 pair을 직접 받음: val(pair1, pair2) = collection.partition{it.조건}
-여기까지 내용을 코드로 확인해보자.
-```kotlin
+여기까지 내용을 코드로 확인해보자.  
+
+~~~kotlin
 fun main(){
     data class Food(val name: String, val price: Int)
     
@@ -42,7 +43,9 @@ fun main(){
 [Food(name=Noodle, price=5000)]
     println(pair2) // [Food(name=Noodle, price=5000)]
 }
-```
+~~~  
+
+
 foodList의 가격 중 17000원이 Chicken과 Fish에서 중복되는데, 가격기준으로 groupBy한 경우, 17000 key 값에 Fish 속성이 들어간 것을 확인할 수 있다. (Map의 특성, Chicken을 Fish가 대체한 결과)
 ---
 4. flatMap
@@ -53,8 +56,9 @@ foodList의 가격 중 17000원이 Chicken과 Fish에서 중복되는데, 가격
 6. zip
    - **collectionA zip collectionB**: 컬렉션 두 개의 아이템을 1:1로 pair 클래스의 객체로 만들어 list로 반환 (새 컬렉션을 만들어줌)
       - 결과 List의 아이템 개수는 더 작은 컬렉션을 따라감
-위 3가지 함수를 코드로 확인해보자.
-```kotlin
+위 3가지 함수를 코드로 확인해보자.  
+
+~~~kotlin
 fun main(){
     val numbers = listOf(-1,0,3,-9,2)
     
@@ -67,7 +71,7 @@ fun main(){
     
     println(newList zip numbers) // [(A, -1), (B, 0), (C, 3), (D, -9)]
 }
-```  
+~~~  
   
 ### 참고사항
 컬렉션 함수는 람다함수를 사용하여 컬렉션을 좀 더 편리하게 조작할 수 있는 함수로, 데이터 조작을 더 수월하게 해주는 다양한 기능 제공한다.
