@@ -1,9 +1,8 @@
 ---
-layout: category
+layout: post
 title: "Train Test Split"
 
-categories: /Machine Learning/Data Science
-permalinks: /categories/Data Science
+categories: Machine Learning
 tags:
   - Split
   - sklearn
