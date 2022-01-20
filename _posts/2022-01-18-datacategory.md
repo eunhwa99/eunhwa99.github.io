@@ -2,7 +2,7 @@
 layout: category
 title: "Data Science"
 
-categories: Data Science
+categories: [Data Science]
 permalinks: /categories/Data Science
 tags:
   - data engineer
