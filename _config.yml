@@ -23,9 +23,7 @@ title: SmartNote                          # the main title
 tagline: IT Developer   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+  android, app, kotlin, machine learning, data
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://eunhwa99.github.io'
@@ -97,7 +95,7 @@ comments:
     repo: eunhwa99/page-comment         # <gh-username>/<repo>
     issue_term: pathname  # < url | pathname | title | ...>
 
-paginate: 10
+paginate: 8
 
 # ------------ The following options are not recommended to be modified ------------------
 
