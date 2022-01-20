@@ -2,7 +2,7 @@
 layout: post
 title: "Train Test Split"
 
-categories: Machine Learning
+categories: [Machine Learning]
 tags:
   - Split
   - sklearn
