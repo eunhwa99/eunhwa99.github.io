@@ -13,8 +13,9 @@ tags:
 호랑이가 오면 사과를 던져준다.  
 사자가 오면 바나나를 던져준다.  
 
-- 위 케이스를 코드로 구현
-```Java
+- 위 케이스를 코드로 구현  
+
+```java
 class Animal {
     String name;
 
@@ -51,8 +52,10 @@ public class Sample {
         zooKeeper.feed(lion);  // feed banana 
     }
 }
-```
-위 상황에서 다른 동물들이 계속 추가된다면 ZooKeeper는 동물이 추가될 때마다 매번 다음과 같은 feed 메소드를 추가해야 한다.
+```  
+
+위 상황에서 다른 동물들이 계속 추가된다면 ZooKeeper는 동물이 추가될 때마다 매번 다음과 같은 feed 메소드를 추가해야 한다.  
+
 ```java
 class ZooKeeper {
   ...
@@ -76,8 +79,9 @@ class ZooKeeper {
 
 ## 인터페이스 작성
 - 인터페이스는 class가 아닌 **interface** 라는 키워드를 이용하여 작성  
-- 클래스가 작성한 인터페이스를 **implements** 한다.
-```Java
+- 클래스가 작성한 인터페이스를 **implements** 한다.  
+
+```java
 interface Predator {
 }
 
@@ -101,7 +105,8 @@ class ZooKeeper {
     }
 }
 
-```  
+```    
+
 - 위 코드에서 tiger은 Tiger 클래스의 객체이자 Predator 인터페이스의 객체 (**다형성**: 객체가 한 개 이상의 자료형 타입을 갖게되는 특성)
 - 어떤 육식동물이 추가되더라도 ZooKeeper는 feed 메소드를 추가할 필요X
   - 식동물이 추가 될 때마다 다음과 같이 Predator 인터페이스를 구현한 클래스를 작성
