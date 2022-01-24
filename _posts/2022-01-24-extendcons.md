@@ -11,8 +11,9 @@ comments: true
 # 클래스
 
 ## 상속
-- 키워드 **extends** 사용
-```Java
+- 키워드 **extends** 사용  
+
+```java
 class Person {
     String name;
 
@@ -34,7 +35,8 @@ public class Sample {
         System.out.println(woman.name); // Betty
     }
 }
-```
+```  
+
 - Woman 클래스에 name 이라는 객체변수와 setName이라는 메소드를 만들지 않았지만 Person 클래스를 상속했기 때문에 그대로 사용이 가능  
 - Woman 클래스는 Person 클래스보다 좀 더 많은 기능(sleep메소드) 보유: **기능 확장**
   - 보통 부모 클래스를 상속받은 자식 클래스는 부모 클래스의 기능에 더하여 *좀 더 많은 기능을 갖도록 작성* 
@@ -47,7 +49,7 @@ public class Sample {
   ※ 주의
   - Woman 객체를 Person 자료형으로 사용할 경우에는 Woman 클래스에만 존재하는 sleep 메소드를 사용할 수 없다.  (Person 클래스에 구현된 setName 메소드만 사용이 가능)  
 
-```Java
+```java
 Person woman = new Woman(); // Woman is a Person (O)
 Woman woman = new Person(); // 오류: Person is a woman (X)
 
@@ -118,7 +120,7 @@ public class Sample {
 ## 메소드 오버로딩
 - 입력항목이 다른 경우 동일한 이름의 다른 메소드 형성
 
-```Java
+```java
 class Person {
     String name;
 
@@ -200,7 +202,9 @@ class Dog extends Animal {
 <br/><br/> 
 
 ### 생성자 오버로딩
-- 입력 항목이 다른 생성자 (※ 메소드 오버로딩과 동일한 개념)
+- 입력 항목이 다른 생성자 (※ 메소드 오버로딩과 동일한 개념)  
+
+
 ```java
 class Animal {
     String name;
