@@ -6,6 +6,7 @@ tags:
   - 상속
   - 생성자
   - 클래스
+comments: true
 ---
 # 클래스
 
