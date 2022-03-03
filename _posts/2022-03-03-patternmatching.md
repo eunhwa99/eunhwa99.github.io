@@ -7,7 +7,7 @@ tags:
   - String
   - Failure link
   - Aho-Corasick
-  
+
 comments: true
 ---
 # 문자열
@@ -15,7 +15,7 @@ comments: true
 
 ## Aho-Corasick 알고리즘
 - 기본 아이디어: 주어진 단어들을 트라이 형태로 표현하고, Failure link를 정의하여 매치 실패시 다음으로 이동할 상태를 정의한다.
-- 사전의 예: {'hers', 'his', 'she'}
+- 사전의 예: {'hers', 'his', 'she'}  
 <img src="https://user-images.githubusercontent.com/68810660/156485800-ac69320d-c009-4e4f-8f2d-bd521ca30cb9.png">
 
 - 시간 복잡도: **O(mK + T)**
