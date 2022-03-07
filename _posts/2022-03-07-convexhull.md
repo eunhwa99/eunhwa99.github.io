@@ -34,4 +34,4 @@ comments: true
     - 스택의 가장 위에 있는 노드가 반대 방향 선분에 속하는 노드이면 pop하여 제거
     - 좌회전 or 우회전에 해당하는 선분만 찾으면 Convex Hull (스택 사용)
 
-[Convex Hull 코드]("https://github.com/eunhwa99/Data-Structure/blob/main/Convex%20Hull.cpp")
+[Convex Hull 코드](https://github.com/eunhwa99/Data-Structure/blob/main/Convex%20Hull.cpp)
