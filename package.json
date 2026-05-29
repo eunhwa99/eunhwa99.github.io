@@ -1,0 +1,12 @@
+{
+  "name": "eunhwa99-github-io",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "npm run test:e2e",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

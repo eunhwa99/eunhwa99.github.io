@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eunhwa | Backend Developer</title>
+  <title>Eunhwa | Backend / Platform Engineer</title>
   <style>
     * {
         margin: 0;
@@ -104,6 +104,9 @@
         text-decoration: none;
         transition: color 0.3s ease;
         font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        min-height: 2rem;
     }
 
     .nav-links a:hover {
@@ -125,6 +128,7 @@
         display: flex;
         align-items: center;
         padding-top: 5rem;
+        scroll-margin-top: 6rem;
     }
 
     .hero-content {
@@ -236,6 +240,7 @@
     .section {
         padding: 6rem 0;
         position: relative;
+        scroll-margin-top: 6rem;
     }
 
     .section-title {
@@ -310,6 +315,12 @@
     }
 
     /* Education */
+    .education-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+        gap: 2rem;
+    }
+
     .education-item {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 16px;
@@ -339,10 +350,15 @@
         margin: 1rem 0;
     }
 
+    .education-note {
+        color: #e0e0e0;
+        margin-top: 1rem;
+    }
+
     /* Projects */
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
         gap: 2rem;
     }
 
@@ -379,6 +395,31 @@
         line-height: 1.6;
     }
 
+    .project-evidence {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .evidence-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.5rem;
+        padding: 0.45rem 0.85rem;
+        border: 1px solid rgba(100, 255, 218, 0.2);
+        border-radius: 8px;
+        background: rgba(100, 255, 218, 0.06);
+        color: #64ffda;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .evidence-link:hover {
+        text-decoration: underline;
+    }
+
     .tech-stack {
         display: flex;
         flex-wrap: wrap;
@@ -398,7 +439,7 @@
     /* Open Source */
     .oss-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
         gap: 1.5rem;
     }
 
@@ -430,7 +471,7 @@
     /* Skills */
     .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
         gap: 2rem;
     }
 
@@ -463,12 +504,11 @@
     .skill-list {
         color: #e0e0e0;
         line-height: 1.8;
-    }
-
+   }
     /* Contact */
     .contact-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
         gap: 2rem;
         text-align: center;
     }
@@ -534,6 +574,40 @@
         .cta-buttons {
             flex-direction: column;
         }
+
+        .btn {
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 1.25rem;
+        }
+
+        .hero {
+            min-height: auto;
+            padding-top: 7rem;
+        }
+
+        .stats {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .stat-item,
+        .experience-item,
+        .education-item,
+        .project-card,
+        .skill-category,
+        .contact-item {
+            padding: 1.5rem;
+        }
+
+        .section {
+            padding: 4.5rem 0;
+        }
     }
   </style>
 </head>
@@ -561,21 +635,21 @@
   <div class="container">
     <div class="hero-content">
       <div class="hero-subtitle fade-in-up">Hello, I'm</div>
-      <h1 class="hero-title fade-in-up">Backend Developer<br>Eunhwa</h1>
+      <h1 class="hero-title fade-in-up">Backend & Platform Engineer<br>Eunhwa Park</h1>
       <p class="hero-description fade-in-up">
-        Developing cloud infrastructure for millions of global users at Samsung Electronics.
-        Passionate about large-scale system design and performance optimization,
-        actively contributing to the developer community through open source projects.
+        I build distributed cloud systems, data platform migrations, and AI-assisted
+        engineering tools. At Samsung Electronics, I work on backend infrastructure where
+        correctness, reliability, and operating cost matter.
       </p>
       <div class="cta-buttons fade-in-up">
         <a href="#contact" class="btn btn-primary">Get In Touch</a>
-        <a href="https://github.com/eunhwa99" target="_blank" class="btn btn-secondary">View
+        <a href="https://github.com/eunhwa99" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View
           GitHub</a>
       </div>
 
       <div class="stats fade-in-up">
         <div class="stat-item">
-          <div class="stat-number">2+</div>
+          <div class="stat-number" data-years-experience-start="2023">3+</div>
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat-item">
@@ -583,12 +657,12 @@
           <div class="stat-label">University GPA</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">4+</div>
-          <div class="stat-label">OSS Contributions</div>
+          <div class="stat-number">8+</div>
+          <div class="stat-label">Merged OSS PRs</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">∞</div>
-          <div class="stat-label">Global Users</div>
+          <div class="stat-number">AWS</div>
+          <div class="stat-label">SAP Certified</div>
         </div>
       </div>
     </div>
@@ -604,17 +678,17 @@
     <div class="experience-item">
       <div class="company-name">Samsung Electronics</div>
       <div class="job-title">Cloud Service Platform Backend Developer</div>
-      <div class="job-period">Jun 2023 ~ Present (Training: Jan 2023 ~ May 2023)</div>
+      <div class="job-period">Jun 2023 ~ Present</div>
       <div class="job-description">
         <ul>
-          <li>Developing cloud infrastructure for major services including Samsung Notes, Samsung
-            Health, and Samsung Cloud
-          </li>
-          <li>Building large-scale distributed systems using Java/Kotlin and Spring Boot</li>
-          <li>Designing and operating cloud-native architecture with AWS and Kubernetes</li>
-          <li>Managing high-availability systems that handle data for millions of users worldwide
-          </li>
-          <li>Analyzing system logs and improving performance using PySpark and Python</li>
+          <li>Build and operate Java/Kotlin Spring Boot services for large-scale Samsung cloud
+            platforms.</li>
+          <li>Work on reliability-sensitive backend systems involving data migration, IAM
+            modernization, batch processing, and cloud-native infrastructure.</li>
+          <li>Analyze production-scale logs and data pipelines with Python and PySpark to support
+            performance and operational investigations.</li>
+          <li>Use AWS, EKS, Kubernetes, Docker, Jenkins, and GitHub Actions across backend delivery
+            workflows.</li>
         </ul>
       </div>
     </div>
@@ -627,11 +701,21 @@
     <h2 class="section-title">Education</h2>
     <p class="section-subtitle">Strong foundation in computer engineering</p>
 
-    <div class="education-item">
-      <div class="university-name">Kyungpook National University</div>
-      <div class="degree">Mobile Engineering</div>
-      <div class="job-period">2019 ~ 2023</div>
-      <div class="gpa">4.45 / 4.5</div>
+    <div class="education-grid">
+      <div class="education-item">
+        <div class="university-name">University of Illinois Urbana-Champaign</div>
+        <div class="degree">Master of Computer Science (MCS)</div>
+        <div class="job-period">2026 ~ 2028</div>
+        <div class="education-note">Graduate study focused on computer science foundations, systems,
+          and AI-adjacent infrastructure.</div>
+      </div>
+
+      <div class="education-item">
+        <div class="university-name">Kyungpook National University</div>
+        <div class="degree">Mobile Engineering</div>
+        <div class="job-period">2019 ~ 2023</div>
+        <div class="gpa">4.45 / 4.5</div>
+      </div>
     </div>
   </div>
 </section>
@@ -639,50 +723,116 @@
 <!-- Projects Section -->
 <section id="projects" class="section">
   <div class="container">
-    <h2 class="section-title">Projects</h2>
-    <p class="section-subtitle">Innovative solution development</p>
+    <h2 class="section-title">Selected Projects</h2>
+    <p class="section-subtitle">Backend, AI infrastructure, and agent workflow tooling</p>
 
     <div class="projects-grid">
-      <a href="https://github.com/eunhwa99/ImageGallery" target="_blank"
-         style="text-decoration: none; color: inherit; display: block;">
-        <div class="project-card">
-          <div class="project-title">ImageGallery</div>
-          <div class="project-period">Personal Project</div>
-          <div class="project-description">
-            A full-stack React + Flask image gallery application demonstrating automated CI/CD
-            pipelines with GitHub Actions, Jenkins, Docker, Helm, and Kubernetes. Features complete
-            DevOps workflow from development to production deployment with comprehensive
-            troubleshooting experience.
-          </div>
-          <div class="tech-stack">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Flask</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">Kubernetes</span>
-            <span class="tech-tag">Helm</span>
-            <span class="tech-tag">Jenkins</span>
-            <span class="tech-tag">GitHub Actions</span>
-          </div>
+      <div class="project-card">
+        <div class="project-title">ContextWiki / MCPContentSearch</div>
+        <div class="project-period">AI Infrastructure Project</div>
+        <div class="project-description">
+          Citation-ready knowledge backend that indexes Notion, Tistory, GitHub, and docs sources,
+          then returns evidence-gated answers through MCP tools.
         </div>
-      </a>
-      <a href="https://github.com/eunhwa99/Today-I-Learned" target="_blank"
-         style="text-decoration: none; color: inherit; display: block;">
-        <div class="project-card">
-          <div class="project-title">Learning note</div>
-          <div class="project-period">Personal Project</div>
-          <div class="project-description">
-            A learning management system that systematically organizes daily learning content
-            through categorization features. Implemented full-stack development using React and
-            Spring Boot.
-          </div>
-          <div class="tech-stack">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Kotlin</span>
-            <span class="tech-tag">Spring Boot</span>
-            <span class="tech-tag">MongoDB</span>
-          </div>
+        <div class="project-evidence">
+          <a class="evidence-link" href="https://github.com/eunhwa99/MCPContentSearch"
+             target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="evidence-link" href="https://github.com/eunhwa99/MCPContentSearch#demo"
+             target="_blank" rel="noopener noreferrer">Demo</a>
         </div>
-      </a>
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">FastMCP</span>
+          <span class="tech-tag">LlamaIndex</span>
+          <span class="tech-tag">ChromaDB</span>
+          <span class="tech-tag">SQLite</span>
+          <span class="tech-tag">Citations</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">AI News Alerts</div>
+        <div class="project-period">Operational Automation</div>
+        <div class="project-description">
+          Daily Slack brief for AI infrastructure trends, built around official sources, HN signal,
+          dry-run safety, secret-safe delivery, and tests.
+        </div>
+        <div class="project-evidence">
+          <a class="evidence-link" href="https://github.com/eunhwa99/ai-news-alerts"
+             target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="evidence-link" href="https://github.com/eunhwa99/ai-news-alerts#slack-format"
+             target="_blank" rel="noopener noreferrer">Demo</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">GitHub Actions</span>
+          <span class="tech-tag">Slack</span>
+          <span class="tech-tag">RSS</span>
+          <span class="tech-tag">Pytest</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Agent Harness Playbook</div>
+        <div class="project-period">Engineering Workflow</div>
+        <div class="project-description">
+          Sanitized playbook for AI-assisted delivery: scoped planning, dry-run safety,
+          verification gates, fresh review loops, and PR handoff.
+        </div>
+        <div class="project-evidence">
+          <a class="evidence-link" href="https://github.com/eunhwa99/agent-harness-playbook"
+             target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="evidence-link" href="https://github.com/eunhwa99/agent-harness-playbook/tree/main/examples/ai-news-alerts"
+             target="_blank" rel="noopener noreferrer">Demo</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Agent Workflows</span>
+          <span class="tech-tag">Review Gates</span>
+          <span class="tech-tag">Dry Runs</span>
+          <span class="tech-tag">GitHub</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Lanternwood Athenaeum</div>
+        <div class="project-period">Agent Workflow Observability</div>
+        <div class="project-description">
+          AI-assisted experiment that renders multi-agent workflows as typed event streams with
+          task routing, specialist queues, reports, and local SSE runs.
+        </div>
+        <div class="project-evidence">
+          <a class="evidence-link" href="https://github.com/eunhwa99/lanternwood-athenaeum"
+             target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="evidence-link" href="https://github.com/eunhwa99/lanternwood-athenaeum#demo"
+             target="_blank" rel="noopener noreferrer">Demo</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Event Modeling</span>
+          <span class="tech-tag">SSE</span>
+          <span class="tech-tag">Codex CLI</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">ImageGallery</div>
+        <div class="project-period">DevOps Practice Project</div>
+        <div class="project-description">
+          React and Flask image app used to practice CI/CD, container packaging, Helm deployment,
+          Kubernetes workflows, and delivery troubleshooting.
+        </div>
+        <div class="project-evidence">
+          <a class="evidence-link" href="https://github.com/eunhwa99/ImageGallery"
+             target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="evidence-link" href="https://github.com/eunhwa99/ImageGallery#demo"
+             target="_blank" rel="noopener noreferrer">Demo</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">Helm</span>
+          <span class="tech-tag">Jenkins</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -693,28 +843,30 @@
     <h2 class="section-title">Open Source Contributions</h2>
     <div class="oss-grid">
       <div class="oss-item">
-        <div class="oss-title">ZEPPELIN-6220</div>
-        <div class="oss-description">Removed unused constructor in DownloadRequest.class for code
-          cleanup
+        <div class="oss-title">Apache Zeppelin Contributor</div>
+        <div class="oss-description">Awarded Grand Prize in the Apache Zeppelin Open Source
+          Contribution Program for upstream code-quality, reliability, and maintainability work.
         </div>
       </div>
 
       <div class="oss-item">
-        <div class="oss-title">ZEPPELIN-6242</div>
-        <div class="oss-description">Refactored initAuth in Neo4jConnectionManager for safer enum
-          parsing and improved default handling
+        <div class="oss-title">ZEPPELIN-6306</div>
+        <div class="oss-description">Prevented a null-pointer failure in StaticRepl with fail-fast
+          JavaCompiler validation.
         </div>
       </div>
 
       <div class="oss-item">
-        <div class="oss-title">ZEPPELIN-6243</div>
-        <div class="oss-description">Remove unused code in SemanticVersion class</div>
+        <div class="oss-title">ZEPPELIN-6299</div>
+        <div class="oss-description">Refactored StaticRepl for readability, correctness, and modern
+          Java usage.
+        </div>
       </div>
 
       <div class="oss-item">
-        <div class="oss-title">ZEPPELIN-6264</div>
-        <div class="oss-description">Refactored InfluxDBInterpreter for improved readability and
-          maintainability
+        <div class="oss-title">ZEPPELIN-6264 / 6242</div>
+        <div class="oss-description">Improved InfluxDB and Neo4j interpreter code paths with safer
+          parsing, defaults, and maintainability-focused cleanup.
         </div>
       </div>
       <div class="oss-item">
@@ -729,37 +881,37 @@
 <!-- Skills Section -->
 <section id="skills" class="section">
   <div class="container">
-    <h2 class="section-title">Skills & Interests</h2>
-    <p class="section-subtitle">Continuous learning and growth</p>
+    <h2 class="section-title">Skills & Focus</h2>
+    <p class="section-subtitle">Production backend systems and AI-adjacent infrastructure</p>
 
     <div class="skills-grid">
       <div class="skill-category">
         <div class="skill-icon">☁️</div>
-        <div class="skill-title">Cloud & DevOps</div>
+        <div class="skill-title">Backend & Data Systems</div>
         <div class="skill-list">
-          AWS, Kubernetes, Docker<br>
-          Infrastructure as Code<br>
-          CI/CD Pipeline
+          Java, Kotlin, Python<br>
+          Spring Boot, Batch Systems<br>
+          DynamoDB, Cassandra, MySQL
         </div>
       </div>
 
       <div class="skill-category">
         <div class="skill-icon">🖥️</div>
-        <div class="skill-title">Backend Development</div>
+        <div class="skill-title">Cloud & Delivery</div>
         <div class="skill-list">
-          Java, Kotlin, Python<br>
-          Spring Boot, Databases<br>
-          Microservices Architecture
+          AWS, EKS, Kubernetes<br>
+          Docker, Jenkins<br>
+          GitHub Actions
         </div>
       </div>
 
       <div class="skill-category">
         <div class="skill-icon">🤖</div>
-        <div class="skill-title">Future Interests</div>
+        <div class="skill-title">AI Engineering Tooling</div>
         <div class="skill-list">
-          Distributed Systems<br>
-          Infrastructure for AI (LLM)<br>
-          Advanced Kubernetes & Helm
+          MCP, Context Search<br>
+          Agent Workflow Observability<br>
+          Verification Harnesses
         </div>
       </div>
     </div>
@@ -773,14 +925,14 @@
     <p class="section-subtitle">Let's work together and build something amazing</p>
 
     <div class="contact-grid">
-      <a href="mailto:sophia99.engineer@gmail.com" class="contact-item"
+      <a href="mailto:eun.h.engineer@gmail.com" class="contact-item"
          style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
         <div class="contact-icon">📧</div>
         <div class="contact-title">Email</div>
         <div class="contact-link">Send email</div>
       </a>
 
-      <a href="https://www.linkedin.com/in/eunwha-park-20a286248/" target="_blank"
+      <a href="https://www.linkedin.com/in/eunhwa-park-20a286248/" target="_blank" rel="noopener noreferrer"
          class="contact-item"
          style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
         <div class="contact-icon">💼</div>
@@ -788,7 +940,7 @@
         <div class="contact-link">Connect with me</div>
       </a>
 
-      <a href="https://github.com/eunhwa99" target="_blank" class="contact-item"
+      <a href="https://github.com/eunhwa99" target="_blank" rel="noopener noreferrer" class="contact-item"
          style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
         <div class="contact-icon">🐱</div>
         <div class="contact-title">GitHub</div>
@@ -801,11 +953,36 @@
 <!-- Footer -->
 <footer>
   <div class="container">
-    <p>&copy; 2025 Eunhwa. All rights reserved. Made with ❤️ and lots of ☕</p>
+    <p>&copy; 2026 Eunhwa Park. Built as a living portfolio.</p>
   </div>
 </footer>
 
 <script>
+  function getPortfolioCurrentYear() {
+      if (typeof window.__PORTFOLIO_CURRENT_YEAR__ === 'number') {
+          return window.__PORTFOLIO_CURRENT_YEAR__;
+      }
+
+      return new Date().getFullYear();
+  }
+
+  function updateYearsExperience() {
+      var experienceStat = document.querySelector('[data-years-experience-start]');
+      if (!experienceStat) {
+          return;
+      }
+
+      var startYear = parseInt(experienceStat.getAttribute('data-years-experience-start'), 10);
+      if (Number.isNaN(startYear)) {
+          return;
+      }
+
+      var years = Math.max(0, getPortfolioCurrentYear() - startYear);
+      experienceStat.textContent = years + '+';
+  }
+
+  updateYearsExperience();
+
   // Simple particle creation
   function createParticle() {
       var particle = document.createElement('div');
