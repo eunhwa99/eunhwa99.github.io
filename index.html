@@ -505,11 +505,13 @@
         color: #e0e0e0;
         line-height: 1.8;
    }
-    /* Contact */
+    /* Availability */
     .contact-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
         gap: 2rem;
+        max-width: 360px;
+        margin: 0 auto;
         text-align: center;
     }
 
@@ -588,7 +590,31 @@
 
         .hero {
             min-height: auto;
-            padding-top: 7rem;
+            padding-top: 6rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            gap: 0.75rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .btn {
+            padding: 0.85rem 1.25rem;
         }
 
         .stats {
@@ -625,7 +651,7 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#availability">Availability</a></li>
     </ul>
   </div>
 </nav>
@@ -634,15 +660,18 @@
 <section id="home" class="hero">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-subtitle fade-in-up">Hello, I'm</div>
+      <div class="hero-subtitle fade-in-up">Samsung Backend Engineer | Incoming UIUC MCS</div>
       <h1 class="hero-title fade-in-up">Backend & Platform Engineer<br>Eunhwa Park</h1>
       <p class="hero-description fade-in-up">
-        I build distributed cloud systems, data platform migrations, and AI-assisted
-        engineering tools. At Samsung Electronics, I work on backend infrastructure where
-        correctness, reliability, and operating cost matter.
+        Seeking U.S. backend and platform software engineering roles. I build backend systems
+        for 56M+ user cloud platforms, including 50TB+ data migrations, IAM modernization,
+        batch pipelines, and AI-assisted engineering tools.
       </p>
       <div class="cta-buttons fade-in-up">
-        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="Resume.pdf" target="_blank" rel="noopener noreferrer"
+           class="btn btn-primary">View Resume</a>
+        <a href="https://www.linkedin.com/in/eunhwa-park-20a286248/" target="_blank"
+           rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
         <a href="https://github.com/eunhwa99" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View
           GitHub</a>
       </div>
@@ -653,8 +682,8 @@
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">4.45</div>
-          <div class="stat-label">University GPA</div>
+          <div class="stat-number">UIUC MCS</div>
+          <div class="stat-label">Incoming 2026</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">8+</div>
@@ -662,7 +691,7 @@
         </div>
         <div class="stat-item">
           <div class="stat-number">AWS</div>
-          <div class="stat-label">SAP Certified</div>
+          <div class="stat-label">Solutions Architect Pro</div>
         </div>
       </div>
     </div>
@@ -681,14 +710,14 @@
       <div class="job-period">Jun 2023 ~ Present</div>
       <div class="job-description">
         <ul>
-          <li>Build and operate Java/Kotlin Spring Boot services for large-scale Samsung cloud
-            platforms.</li>
-          <li>Work on reliability-sensitive backend systems involving data migration, IAM
-            modernization, batch processing, and cloud-native infrastructure.</li>
+          <li>Build and operate Java/Kotlin Spring Boot services for Samsung cloud platforms
+            serving 56M+ users.</li>
+          <li>Contribute to 50TB+ data migration, IAM modernization, batch processing, and
+            cloud-native infrastructure work.</li>
           <li>Analyze production-scale logs and data pipelines with Python and PySpark to support
             performance and operational investigations.</li>
-          <li>Use AWS, EKS, Kubernetes, Docker, Jenkins, and GitHub Actions across backend delivery
-            workflows.</li>
+          <li>Improve backend delivery and analysis workflows across AWS, EKS, Kubernetes, Docker,
+            Jenkins, and GitHub Actions, including a 61% runtime reduction in one analysis path.</li>
         </ul>
       </div>
     </div>
@@ -704,9 +733,9 @@
     <div class="education-grid">
       <div class="education-item">
         <div class="university-name">University of Illinois Urbana-Champaign</div>
-        <div class="degree">Master of Computer Science (MCS)</div>
-        <div class="job-period">2026 ~ 2028</div>
-        <div class="education-note">Graduate study focused on computer science foundations, systems,
+        <div class="degree">Incoming Master of Computer Science (MCS)</div>
+        <div class="job-period">2026 - 2028</div>
+        <div class="education-note">Incoming graduate study focused on computer science foundations, systems,
           and AI-adjacent infrastructure.</div>
       </div>
 
@@ -714,7 +743,7 @@
         <div class="university-name">Kyungpook National University</div>
         <div class="degree">Mobile Engineering</div>
         <div class="job-period">2019 ~ 2023</div>
-        <div class="gpa">4.45 / 4.5</div>
+        <div class="gpa">GPA 4.45 / 4.5</div>
       </div>
     </div>
   </div>
@@ -724,7 +753,7 @@
 <section id="projects" class="section">
   <div class="container">
     <h2 class="section-title">Selected Projects</h2>
-    <p class="section-subtitle">Backend, AI infrastructure, and agent workflow tooling</p>
+    <p class="section-subtitle">Public GitHub work that supports backend, automation, and infrastructure positioning</p>
 
     <div class="projects-grid">
       <div class="project-card">
@@ -750,17 +779,38 @@
         </div>
       </div>
       <div class="project-card">
+        <div class="project-title">Agent Harness Playbook + Codex Config</div>
+        <div class="project-period">Engineering Workflow</div>
+        <div class="project-description">
+          Public playbook plus executable companion config for safe AI-assisted delivery:
+          branch hygiene, dry-run safety, verification gates, and PR handoff.
+        </div>
+        <div class="project-evidence">
+          <a class="evidence-link" href="https://github.com/eunhwa99/agent-harness-playbook"
+             target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="evidence-link" href="https://github.com/eunhwa99/codex-config"
+             target="_blank" rel="noopener noreferrer">Codex Config</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Agent Workflows</span>
+          <span class="tech-tag">Codex Skills</span>
+          <span class="tech-tag">Review Gates</span>
+          <span class="tech-tag">Dry Runs</span>
+          <span class="tech-tag">GitHub</span>
+        </div>
+      </div>
+      <div class="project-card">
         <div class="project-title">AI News Alerts</div>
         <div class="project-period">Operational Automation</div>
         <div class="project-description">
-          Daily Slack brief for AI infrastructure trends, built around official sources, HN signal,
-          dry-run safety, secret-safe delivery, and tests.
+          Safe scheduled Slack brief for AI infrastructure trends, built around official sources,
+          HN signal, dry-run safety, secret-safe delivery, and tests.
         </div>
         <div class="project-evidence">
           <a class="evidence-link" href="https://github.com/eunhwa99/ai-news-alerts"
              target="_blank" rel="noopener noreferrer">Repository</a>
           <a class="evidence-link" href="https://github.com/eunhwa99/ai-news-alerts#slack-format"
-             target="_blank" rel="noopener noreferrer">Demo</a>
+             target="_blank" rel="noopener noreferrer">Slack Format</a>
         </div>
         <div class="tech-stack">
           <span class="tech-tag">Python</span>
@@ -771,44 +821,24 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-title">Agent Harness Playbook</div>
-        <div class="project-period">Engineering Workflow</div>
+        <div class="project-title">RepoLens</div>
+        <div class="project-period">Developer Tooling</div>
         <div class="project-description">
-          Sanitized playbook for AI-assisted delivery: scoped planning, dry-run safety,
-          verification gates, fresh review loops, and PR handoff.
+          Next.js workspace that turns a public GitHub repository into an onboarding-ready
+          exploration workspace with repository parsing and analysis routes.
         </div>
         <div class="project-evidence">
-          <a class="evidence-link" href="https://github.com/eunhwa99/agent-harness-playbook"
+          <a class="evidence-link" href="https://github.com/eunhwa99/RepoLens"
              target="_blank" rel="noopener noreferrer">Repository</a>
-          <a class="evidence-link" href="https://github.com/eunhwa99/agent-harness-playbook/tree/main/examples/ai-news-alerts"
-             target="_blank" rel="noopener noreferrer">Demo</a>
-        </div>
-        <div class="tech-stack">
-          <span class="tech-tag">Agent Workflows</span>
-          <span class="tech-tag">Review Gates</span>
-          <span class="tech-tag">Dry Runs</span>
-          <span class="tech-tag">GitHub</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-title">Lanternwood Athenaeum</div>
-        <div class="project-period">Agent Workflow Observability</div>
-        <div class="project-description">
-          AI-assisted experiment that renders multi-agent workflows as typed event streams with
-          task routing, specialist queues, reports, and local SSE runs.
-        </div>
-        <div class="project-evidence">
-          <a class="evidence-link" href="https://github.com/eunhwa99/lanternwood-athenaeum"
-             target="_blank" rel="noopener noreferrer">Repository</a>
-          <a class="evidence-link" href="https://github.com/eunhwa99/lanternwood-athenaeum#demo"
-             target="_blank" rel="noopener noreferrer">Demo</a>
+          <a class="evidence-link" href="https://github.com/eunhwa99/RepoLens/pull/2"
+             target="_blank" rel="noopener noreferrer">Pull Request</a>
         </div>
         <div class="tech-stack">
           <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">React</span>
-          <span class="tech-tag">Event Modeling</span>
-          <span class="tech-tag">SSE</span>
-          <span class="tech-tag">Codex CLI</span>
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">Prisma</span>
+          <span class="tech-tag">GitHub Parsing</span>
+          <span class="tech-tag">Playwright</span>
         </div>
       </div>
       <div class="project-card">
@@ -918,33 +948,18 @@
   </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="section">
+<!-- Availability Section -->
+<section id="availability" class="section">
   <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <p class="section-subtitle">Let's work together and build something amazing</p>
+    <h2 class="section-title">Availability</h2>
+    <p class="section-subtitle">Open to U.S. backend, platform, and infrastructure software engineering roles</p>
 
     <div class="contact-grid">
       <a href="mailto:eun.h.engineer@gmail.com" class="contact-item"
          style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
         <div class="contact-icon">📧</div>
         <div class="contact-title">Email</div>
-        <div class="contact-link">Send email</div>
-      </a>
-
-      <a href="https://www.linkedin.com/in/eunhwa-park-20a286248/" target="_blank" rel="noopener noreferrer"
-         class="contact-item"
-         style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
-        <div class="contact-icon">💼</div>
-        <div class="contact-title">LinkedIn</div>
-        <div class="contact-link">Connect with me</div>
-      </a>
-
-      <a href="https://github.com/eunhwa99" target="_blank" rel="noopener noreferrer" class="contact-item"
-         style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
-        <div class="contact-icon">🐱</div>
-        <div class="contact-title">GitHub</div>
-        <div class="contact-link">View my code</div>
+        <div class="contact-link">eun.h.engineer@gmail.com</div>
       </a>
     </div>
   </div>
