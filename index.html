@@ -573,8 +573,22 @@
             font-size: 2.5rem;
         }
 
+        .section-title {
+            font-size: 2rem;
+        }
+
         .stats {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            word-break: break-word;
         }
 
         .cta-buttons {
@@ -608,8 +622,17 @@
         }
 
         .hero-description {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
         }
 
         .cta-buttons {
@@ -622,7 +645,7 @@
         }
 
         .stats {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
         }
 
@@ -632,11 +655,21 @@
         .project-card,
         .skill-category,
         .contact-item {
-            padding: 1.5rem;
+            padding: 1.25rem;
         }
 
         .section {
-            padding: 4.5rem 0;
+            padding: 4rem 0;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .stats {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-title {
+            font-size: 1.9rem;
         }
     }
   </style>
