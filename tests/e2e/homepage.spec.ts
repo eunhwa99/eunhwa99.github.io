@@ -114,20 +114,23 @@ import { expect, test, type Page } from "@playwright/test";
 
    const hero = page.locator("#home");
 
-   await expect(page).toHaveTitle(/Eunhwa \| Backend \/ Platform Engineer/);
-   await expect(page.getByRole("heading", { name: /Backend & Platform Engineer\s+Eunhwa Park/ })).toBeVisible();
-   await expect(page.getByText(/Seeking U\.S\. backend and platform software engineering roles/i)).toBeVisible();
+   await expect(page).toHaveTitle(/Eunwha \| Backend \/ Platform Engineer/);
+   await expect(page.getByRole("heading", { name: /Backend & Platform Engineer\s+Eunwha Park/ })).toBeVisible();
+   await expect(page.getByText(/I enjoy building backend systems that scale/i)).toBeVisible();
+   await expect(page.getByText(/from cloud services to data\s+infrastructure/i)).toBeVisible();
+   await expect(hero.getByText(/50TB/i)).toHaveCount(0);
+   await expect(page.getByText(/Seeking U\.S\./i)).toHaveCount(0);
+   await expect(page.getByText(/software engineering roles/i)).toHaveCount(0);
+   await expect(page.getByText(/IAM/i)).toHaveCount(0);
+   await expect(page.getByText(/56M/i)).toHaveCount(0);
    const resumeLink = hero.getByRole("link", { name: "View Resume" });
    await expect(resumeLink).toHaveAttribute("href", "Resume.pdf");
    await expect(resumeLink).toHaveAttribute("target", "_blank");
    await expect(resumeLink).not.toHaveAttribute("download", /.*/);
-   await expect(hero.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
-     "href",
-     "https://www.linkedin.com/in/eunhwa-park-20a286248/",
-   );
-   await expect(hero.getByRole("link", { name: /View\s+GitHub/ })).toHaveAttribute("href", "https://github.com/eunhwa99");
+   await expect(hero.getByRole("link", { name: "LinkedIn" })).toHaveCount(0);
+   await expect(hero.getByRole("link", { name: /View\s+GitHub/ })).toHaveCount(0);
 
-   for (const heading of ["Experience", "Education", "Selected Projects", "Open Source Contributions", "Skills & Focus", "Availability"]) {
+   for (const heading of ["Experience", "Education", "Selected Projects", "Open Source Contributions", "Skills & Focus", "Contact"]) {
      await expect(page.getByRole("heading", { name: heading })).toBeVisible();
    }
  });
@@ -158,48 +161,57 @@ import { expect, test, type Page } from "@playwright/test";
    const hero = page.locator("#home");
    const uiucStat = hero.locator(".stat-item").filter({ hasText: "UIUC MCS" });
    const awsStat = hero.locator(".stat-item").filter({ hasText: "AWS" });
+   const ossStat = hero.locator(".stat-item").filter({ hasText: "Merged OSS PRs" });
 
    await expect(uiucStat.getByText("UIUC MCS", { exact: true })).toBeVisible();
    await expect(uiucStat.getByText("Incoming 2026", { exact: true })).toBeVisible();
+   await expect(ossStat.getByText("9", { exact: true })).toBeVisible();
    await expect(awsStat.getByText("AWS", { exact: true })).toBeVisible();
    await expect(awsStat.getByText("Solutions Architect Pro", { exact: true })).toBeVisible();
    await expect(hero.getByText("University GPA")).toHaveCount(0);
  });
 
- test("prioritizes the strongest recruiter-facing GitHub work", async ({ page }) => {
+ test("focuses the project section on the strongest recruiter-facing GitHub work", async ({ page }) => {
    await page.goto("/");
 
    const projectTitles = await page.locator("#projects .project-title").allTextContents();
 
-   expect(projectTitles.slice(0, 5)).toEqual([
+   expect(projectTitles).toEqual([
      "ContextWiki / MCPContentSearch",
-     "Agent Harness Playbook + Codex Config",
-     "AI News Alerts",
      "RepoLens",
-     "ImageGallery",
    ]);
 
    const projects = page.locator("#projects");
    await expect(projects.getByText(/citation-ready knowledge backend/i)).toBeVisible();
-   await expect(projects.getByText(/executable companion/i)).toBeVisible();
-   await expect(projects.getByText(/scheduled Slack brief/i)).toBeVisible();
    await expect(projects.getByText(/onboarding-ready\s+exploration\s+workspace/i)).toBeVisible();
-   await expect(projects.getByText("Lanternwood Athenaeum")).toHaveCount(0);
+   for (const removedProject of [
+     "Agent Harness Playbook + Codex Config",
+     "AI News Alerts",
+     "ImageGallery",
+     "Lanternwood Athenaeum",
+   ]) {
+     await expect(projects.getByText(removedProject, { exact: true })).toHaveCount(0);
+   }
  });
 
- test("keeps experience focused on backend operations instead of agent harness claims", async ({ page }) => {
+ test("keeps experience narrative concise and portfolio-friendly", async ({ page }) => {
    await page.goto("/");
 
    const experience = page.locator("#experience");
-   const experienceBullets = await experience.locator(".job-description li").allTextContents();
 
-   expect(experienceBullets).toHaveLength(4);
-   await expect(experience.getByText("Jun 2023 ~ Present", { exact: true })).toBeVisible();
+   await expect(experience.getByText("Backend Software Engineer", { exact: true })).toBeVisible();
+   await expect(experience.getByText("Jan 2023 - Present", { exact: true })).toBeVisible();
    await expect(experience.getByText(/Training:/i)).toHaveCount(0);
-   await expect(experience.getByText(/56M\+\s+user/i)).toBeVisible();
-   await expect(experience.getByText(/50TB\+\s+data migration/i)).toBeVisible();
-   await expect(experience.getByText(/61%\s+runtime reduction/i)).toBeVisible();
-   await expect(experience.getByText(/Python and PySpark/i)).toBeVisible();
+   await expect(experience.locator(".job-description li")).toHaveCount(0);
+   await expect(experience.getByText(/At Samsung, I've worked on large-scale database migrations/i)).toBeVisible();
+   await expect(experience.getByText(/cloud-native modernization/i)).toBeVisible();
+   await expect(experience.getByText(/services\s+used by millions of people/i)).toBeVisible();
+   await expect(experience.getByText(/turning complex production problems into systems/i)).toBeVisible();
+   await expect(experience.getByText(/easier to understand, operate, and trust/i)).toBeVisible();
+   await expect(experience.getByText(/78B\+|95%|4 calls to 1|61%/i)).toHaveCount(0);
+   for (const focus of ["Large-scale migration", "Cloud-native operations", "Data consistency", "Distributed systems"]) {
+     await expect(experience.getByText(focus, { exact: true })).toBeVisible();
+   }
    await expect(experience.getByText(/agent-assisted engineering harnesses/i)).toHaveCount(0);
  });
 
@@ -213,17 +225,22 @@ import { expect, test, type Page } from "@playwright/test";
    await expect(education.getByText("Kyungpook National University")).toBeVisible();
    await expect(education.getByText("Mobile Engineering")).toBeVisible();
    await expect(education.getByText("GPA 4.45 / 4.5")).toBeVisible();
+   await expect(education.getByText("Ranked 1st out of 33 students")).toBeVisible();
+   await expect(education.getByText(/systems, algorithms,\s+and AI infrastructure foundations/i)).toBeVisible();
+   await expect(education.getByText(/AI-adjacent infrastructure/i)).toHaveCount(0);
  });
 
  test("uses defensible skill categories without overclaiming frontend tooling", async ({ page }) => {
    await page.goto("/");
 
    const skills = page.locator("#skills");
+   await expect(skills.getByText(/Tools I reach for when systems need to be reliable/i)).toHaveCount(0);
    await expect(skills.getByText("Backend & Data Systems")).toBeVisible();
    await expect(skills.getByText("Cloud & Delivery")).toBeVisible();
-   await expect(skills.getByText("AI Engineering Tooling")).toBeVisible();
+   await expect(skills.getByText("AI-Assisted Engineering")).toBeVisible();
+   await expect(skills.getByText("Verification Habits")).toBeVisible();
 
-   for (const technology of ["PixiJS", "Vitest", "Playwright"]) {
+   for (const technology of ["PixiJS", "Vitest", "Playwright", "AI Engineering Tooling", "Agent Workflow Observability"]) {
      await expect(skills.getByText(technology, { exact: true })).toHaveCount(0);
    }
  });
@@ -232,15 +249,15 @@ import { expect, test, type Page } from "@playwright/test";
    await page.goto("/");
 
    const cards = page.locator("#projects .project-card");
-   await expect(cards).toHaveCount(5);
+   await expect(cards).toHaveCount(2);
 
    const descriptions = await cards.locator(".project-description").allTextContents();
    for (const description of descriptions) {
      expect(description.trim().length).toBeLessThanOrEqual(190);
    }
 
-   await expect(cards.locator(".project-evidence")).toHaveCount(5);
-   for (let i = 0; i < 5; i += 1) {
+   await expect(cards.locator(".project-evidence")).toHaveCount(2);
+   for (let i = 0; i < 2; i += 1) {
      const card = cards.nth(i);
      await expect(card.locator(".project-evidence").getByRole("link")).toHaveCount(2);
      await expect(card.locator(".project-evidence").getByRole("link", { name: "Repository", exact: true })).toBeVisible();
@@ -251,26 +268,67 @@ import { expect, test, type Page } from "@playwright/test";
    }
  });
 
- test("keeps availability section focused on email without repeating social links", async ({ page }) => {
+ test("groups open source contributions into evidence-backed upstream work", async ({ page }) => {
+   await page.goto("/");
+
+   const openSource = page.locator("#open-source");
+   const items = openSource.locator(".oss-item");
+
+   await expect(items).toHaveCount(2);
+   await expect(openSource.getByText("Apache Zeppelin", { exact: true })).toBeVisible();
+   await expect(openSource.getByText("Kubernetes Website", { exact: true })).toBeVisible();
+   await expect(openSource.getByText(/Grand Prize recipient/i)).toBeVisible();
+   await expect(openSource.getByText(/Additional cleanup and refactoring contributions merged upstream/i)).toBeVisible();
+
+   for (const linkName of [
+     "ZEPPELIN-6220",
+     "ZEPPELIN-6243",
+     "ZEPPELIN-6285",
+     "ZEPPELIN-6300",
+     "ZEPPELIN-6306",
+     "ZEPPELIN-6299",
+     "ZEPPELIN-6264",
+     "ZEPPELIN-6242",
+   ]) {
+     await expect(openSource.getByRole("link", { name: linkName })).toHaveAttribute("href", /github\.com\/apache\/zeppelin\/pull\//);
+   }
+
+   await expect(openSource.getByRole("link", { name: "Merged PR" })).toHaveAttribute(
+     "href",
+     "https://github.com/kubernetes/website/pull/52238",
+   );
+   await expect(openSource.getByRole("link", { name: "Issue" })).toHaveAttribute(
+     "href",
+     "https://github.com/kubernetes/website/issues/52237",
+   );
+ });
+
+ test("collects contact links outside the hero", async ({ page }) => {
    await page.goto("/");
 
    const availability = page.locator("#availability");
 
+   await expect(availability.getByRole("heading", { name: "Contact" })).toBeVisible();
+   await expect(availability.getByText(/Happy to talk about backend systems/i)).toBeVisible();
    await expect(availability.getByRole("link", { name: "Email" })).toHaveAttribute(
      "href",
      "mailto:eun.h.engineer@gmail.com",
    );
-   await expect(availability.getByRole("link", { name: /LinkedIn/i })).toHaveCount(0);
-   await expect(availability.getByRole("link", { name: /GitHub/i })).toHaveCount(0);
+   await expect(availability.getByRole("link", { name: /LinkedIn/i })).toHaveAttribute(
+     "href",
+     "https://www.linkedin.com/in/eunhwa-park-20a286248/",
+   );
+   await expect(availability.getByRole("link", { name: /GitHub/i })).toHaveAttribute("href", "https://github.com/eunhwa99");
+   await expect(availability.getByRole("link", { name: /Resume/i })).toHaveCount(0);
  });
 
  test("keeps internal navigation targets below the fixed nav", async ({ page }) => {
    await page.setViewportSize({ width: 1440, height: 900 });
    await page.goto("/");
 
-   for (const linkName of ["Experience", "Education", "Projects", "Skills", "Availability"]) {
+   for (const linkName of ["Experience", "Education", "Projects", "Skills", "Contact"]) {
      await page.locator("nav").getByRole("link", { name: linkName, exact: true }).click();
-     const targetId = linkName === "Skills" ? "skills" : linkName.toLowerCase();
+     const targetId = linkName === "Skills" ? "skills" : linkName === "Contact" ? "availability" : linkName.toLowerCase();
      await expect(page.locator(`#${targetId}`)).toBeInViewport();
 
      const clearance = await page.evaluate((id) => {
@@ -309,7 +367,7 @@ import { expect, test, type Page } from "@playwright/test";
      }),
    );
 
-   expect(ctaRects).toHaveLength(3);
+   expect(ctaRects).toHaveLength(1);
    for (const rect of ctaRects) {
      expect(rect.top, `${rect.text} should be visible below the fixed nav`).toBeGreaterThanOrEqual(70);
      expect(rect.bottom, `${rect.text} should fit in the first mobile viewport`).toBeLessThanOrEqual(844);

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eunhwa | Backend / Platform Engineer</title>
+  <title>Eunwha | Backend / Platform Engineer</title>
   <style>
     * {
         margin: 0;
@@ -295,23 +295,18 @@
         margin-bottom: 1.5rem;
     }
 
-    .job-description ul {
-        list-style: none;
-        padding-left: 0;
-    }
-
-    .job-description li {
-        margin-bottom: 0.8rem;
-        padding-left: 1.5rem;
-        position: relative;
+    .experience-summary {
         color: #e0e0e0;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        max-width: 900px;
     }
 
-    .job-description li::before {
-        content: "▶";
-        position: absolute;
-        left: 0;
-        color: #64ffda;
+    .experience-focus {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
     }
 
     /* Education */
@@ -450,6 +445,7 @@
         border: 1px solid rgba(100, 255, 218, 0.1);
         backdrop-filter: blur(20px);
         transition: transform 0.3s ease;
+        height: 100%;
     }
 
     .oss-item:hover {
@@ -466,6 +462,14 @@
     .oss-description {
         color: #e0e0e0;
         font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .oss-evidence {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
     }
 
     /* Skills */
@@ -505,12 +509,12 @@
         color: #e0e0e0;
         line-height: 1.8;
    }
-    /* Availability */
+    /* Contact */
     .contact-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
         gap: 2rem;
-        max-width: 360px;
+        max-width: 900px;
         margin: 0 auto;
         text-align: center;
     }
@@ -651,7 +655,7 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#availability">Availability</a></li>
+      <li><a href="#availability">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -661,19 +665,14 @@
   <div class="container">
     <div class="hero-content">
       <div class="hero-subtitle fade-in-up">Samsung Backend Engineer | Incoming UIUC MCS</div>
-      <h1 class="hero-title fade-in-up">Backend & Platform Engineer<br>Eunhwa Park</h1>
+      <h1 class="hero-title fade-in-up">Backend & Platform Engineer<br>Eunwha Park</h1>
       <p class="hero-description fade-in-up">
-        Seeking U.S. backend and platform software engineering roles. I build backend systems
-        for 56M+ user cloud platforms, including 50TB+ data migrations, IAM modernization,
-        batch pipelines, and AI-assisted engineering tools.
+        I enjoy building backend systems that scale, from cloud services to data
+        infrastructure, and making them reliable for millions of users.
       </p>
       <div class="cta-buttons fade-in-up">
         <a href="Resume.pdf" target="_blank" rel="noopener noreferrer"
            class="btn btn-primary">View Resume</a>
-        <a href="https://www.linkedin.com/in/eunhwa-park-20a286248/" target="_blank"
-           rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
-        <a href="https://github.com/eunhwa99" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View
-          GitHub</a>
       </div>
 
       <div class="stats fade-in-up">
@@ -686,7 +685,7 @@
           <div class="stat-label">Incoming 2026</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">8+</div>
+          <div class="stat-number">9</div>
           <div class="stat-label">Merged OSS PRs</div>
         </div>
         <div class="stat-item">
@@ -702,23 +701,28 @@
 <section id="experience" class="section">
   <div class="container">
     <h2 class="section-title">Experience</h2>
-    <p class="section-subtitle">Building large-scale distributed systems</p>
+    <p class="section-subtitle">Building reliable backend systems for services people use every day</p>
 
     <div class="experience-item">
       <div class="company-name">Samsung Electronics</div>
-      <div class="job-title">Cloud Service Platform Backend Developer</div>
-      <div class="job-period">Jun 2023 ~ Present</div>
+      <div class="job-title">Backend Software Engineer</div>
+      <div class="job-period">Jan 2023 - Present</div>
       <div class="job-description">
-        <ul>
-          <li>Build and operate Java/Kotlin Spring Boot services for Samsung cloud platforms
-            serving 56M+ users.</li>
-          <li>Contribute to 50TB+ data migration, IAM modernization, batch processing, and
-            cloud-native infrastructure work.</li>
-          <li>Analyze production-scale logs and data pipelines with Python and PySpark to support
-            performance and operational investigations.</li>
-          <li>Improve backend delivery and analysis workflows across AWS, EKS, Kubernetes, Docker,
-            Jenkins, and GitHub Actions, including a 61% runtime reduction in one analysis path.</li>
-        </ul>
+        <p class="experience-summary">
+          At Samsung, I've worked on large-scale database migrations,
+          cloud-native modernization, and reliability improvements for services
+          used by millions of people.
+        </p>
+        <p class="experience-summary">
+          What I enjoy most is turning complex production problems into systems
+          that are easier to understand, operate, and trust.
+        </p>
+        <div class="experience-focus" aria-label="Experience focus areas">
+          <span class="tech-tag">Large-scale migration</span>
+          <span class="tech-tag">Cloud-native operations</span>
+          <span class="tech-tag">Data consistency</span>
+          <span class="tech-tag">Distributed systems</span>
+        </div>
       </div>
     </div>
   </div>
@@ -728,15 +732,15 @@
 <section id="education" class="section">
   <div class="container">
     <h2 class="section-title">Education</h2>
-    <p class="section-subtitle">Strong foundation in computer engineering</p>
+    <p class="section-subtitle">Computer science foundations, systems, and steady curiosity</p>
 
     <div class="education-grid">
       <div class="education-item">
         <div class="university-name">University of Illinois Urbana-Champaign</div>
         <div class="degree">Incoming Master of Computer Science (MCS)</div>
         <div class="job-period">2026 - 2028</div>
-        <div class="education-note">Incoming graduate study focused on computer science foundations, systems,
-          and AI-adjacent infrastructure.</div>
+        <div class="education-note">Incoming graduate study to deepen systems, algorithms,
+          and AI infrastructure foundations.</div>
       </div>
 
       <div class="education-item">
@@ -744,6 +748,7 @@
         <div class="degree">Mobile Engineering</div>
         <div class="job-period">2019 ~ 2023</div>
         <div class="gpa">GPA 4.45 / 4.5</div>
+        <div class="education-note">Ranked 1st out of 33 students</div>
       </div>
     </div>
   </div>
@@ -753,7 +758,7 @@
 <section id="projects" class="section">
   <div class="container">
     <h2 class="section-title">Selected Projects</h2>
-    <p class="section-subtitle">Public GitHub work that supports backend, automation, and infrastructure positioning</p>
+    <p class="section-subtitle">A few things I’ve been building</p>
 
     <div class="projects-grid">
       <div class="project-card">
@@ -779,48 +784,6 @@
         </div>
       </div>
       <div class="project-card">
-        <div class="project-title">Agent Harness Playbook + Codex Config</div>
-        <div class="project-period">Engineering Workflow</div>
-        <div class="project-description">
-          Public playbook plus executable companion config for safe AI-assisted delivery:
-          branch hygiene, dry-run safety, verification gates, and PR handoff.
-        </div>
-        <div class="project-evidence">
-          <a class="evidence-link" href="https://github.com/eunhwa99/agent-harness-playbook"
-             target="_blank" rel="noopener noreferrer">Repository</a>
-          <a class="evidence-link" href="https://github.com/eunhwa99/codex-config"
-             target="_blank" rel="noopener noreferrer">Codex Config</a>
-        </div>
-        <div class="tech-stack">
-          <span class="tech-tag">Agent Workflows</span>
-          <span class="tech-tag">Codex Skills</span>
-          <span class="tech-tag">Review Gates</span>
-          <span class="tech-tag">Dry Runs</span>
-          <span class="tech-tag">GitHub</span>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-title">AI News Alerts</div>
-        <div class="project-period">Operational Automation</div>
-        <div class="project-description">
-          Safe scheduled Slack brief for AI infrastructure trends, built around official sources,
-          HN signal, dry-run safety, secret-safe delivery, and tests.
-        </div>
-        <div class="project-evidence">
-          <a class="evidence-link" href="https://github.com/eunhwa99/ai-news-alerts"
-             target="_blank" rel="noopener noreferrer">Repository</a>
-          <a class="evidence-link" href="https://github.com/eunhwa99/ai-news-alerts#slack-format"
-             target="_blank" rel="noopener noreferrer">Slack Format</a>
-        </div>
-        <div class="tech-stack">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">GitHub Actions</span>
-          <span class="tech-tag">Slack</span>
-          <span class="tech-tag">RSS</span>
-          <span class="tech-tag">Pytest</span>
-        </div>
-      </div>
-      <div class="project-card">
         <div class="project-title">RepoLens</div>
         <div class="project-period">Developer Tooling</div>
         <div class="project-description">
@@ -841,67 +804,66 @@
           <span class="tech-tag">Playwright</span>
         </div>
       </div>
-      <div class="project-card">
-        <div class="project-title">ImageGallery</div>
-        <div class="project-period">DevOps Practice Project</div>
-        <div class="project-description">
-          React and Flask image app used to practice CI/CD, container packaging, Helm deployment,
-          Kubernetes workflows, and delivery troubleshooting.
-        </div>
-        <div class="project-evidence">
-          <a class="evidence-link" href="https://github.com/eunhwa99/ImageGallery"
-             target="_blank" rel="noopener noreferrer">Repository</a>
-          <a class="evidence-link" href="https://github.com/eunhwa99/ImageGallery#demo"
-             target="_blank" rel="noopener noreferrer">Demo</a>
-        </div>
-        <div class="tech-stack">
-          <span class="tech-tag">React</span>
-          <span class="tech-tag">Flask</span>
-          <span class="tech-tag">Docker</span>
-          <span class="tech-tag">Kubernetes</span>
-          <span class="tech-tag">Helm</span>
-          <span class="tech-tag">Jenkins</span>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- Open Source Section -->
-<section class="section">
+<section id="open-source" class="section">
   <div class="container">
     <h2 class="section-title">Open Source Contributions</h2>
+    <p class="section-subtitle">Merged upstream work in Apache Zeppelin and Kubernetes documentation</p>
     <div class="oss-grid">
       <div class="oss-item">
-        <div class="oss-title">Apache Zeppelin Contributor</div>
-        <div class="oss-description">Awarded Grand Prize in the Apache Zeppelin Open Source
-          Contribution Program for upstream code-quality, reliability, and maintainability work.
+        <div class="oss-title">Apache Zeppelin</div>
+        <div class="oss-description">
+          Grand Prize recipient in the Apache Zeppelin Open Source Contribution Program, with
+          merged Java interpreter fixes focused on reliability, readability, and maintainability.
+          Additional cleanup and refactoring contributions merged upstream.
+        </div>
+        <div class="oss-evidence">
+          <a class="evidence-link" href="https://github.com/apache/zeppelin/pull/4970"
+             target="_blank" rel="noopener noreferrer">ZEPPELIN-6220</a>
+          <a class="evidence-link" href="https://github.com/apache/zeppelin/pull/4978"
+             target="_blank" rel="noopener noreferrer">ZEPPELIN-6243</a>
+          <a class="evidence-link" href="https://github.com/apache/zeppelin/pull/5033"
+             target="_blank" rel="noopener noreferrer">ZEPPELIN-6285</a>
+          <a class="evidence-link" href="https://github.com/apache/zeppelin/pull/5049"
+             target="_blank" rel="noopener noreferrer">ZEPPELIN-6300</a>
+          <a class="evidence-link" href="https://github.com/apache/zeppelin/pull/5069"
+             target="_blank" rel="noopener noreferrer">ZEPPELIN-6306</a>
+          <a class="evidence-link" href="https://github.com/apache/zeppelin/pull/5048"
+             target="_blank" rel="noopener noreferrer">ZEPPELIN-6299</a>
+          <a class="evidence-link" href="https://github.com/apache/zeppelin/pull/5005"
+             target="_blank" rel="noopener noreferrer">ZEPPELIN-6264</a>
+          <a class="evidence-link" href="https://github.com/apache/zeppelin/pull/4975"
+             target="_blank" rel="noopener noreferrer">ZEPPELIN-6242</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">Reliability</span>
+          <span class="tech-tag">Refactoring</span>
+          <span class="tech-tag">Interpreters</span>
         </div>
       </div>
 
       <div class="oss-item">
-        <div class="oss-title">ZEPPELIN-6306</div>
-        <div class="oss-description">Prevented a null-pointer failure in StaticRepl with fail-fast
-          JavaCompiler validation.
+        <div class="oss-title">Kubernetes Website</div>
+        <div class="oss-description">
+          Merged Korean documentation synchronization for the ingress-minikube guide, keeping
+          localized Kubernetes learning material aligned with upstream English docs.
         </div>
-      </div>
-
-      <div class="oss-item">
-        <div class="oss-title">ZEPPELIN-6299</div>
-        <div class="oss-description">Refactored StaticRepl for readability, correctness, and modern
-          Java usage.
+        <div class="oss-evidence">
+          <a class="evidence-link" href="https://github.com/kubernetes/website/pull/52238"
+             target="_blank" rel="noopener noreferrer">Merged PR</a>
+          <a class="evidence-link" href="https://github.com/kubernetes/website/issues/52237"
+             target="_blank" rel="noopener noreferrer">Issue</a>
         </div>
-      </div>
-
-      <div class="oss-item">
-        <div class="oss-title">ZEPPELIN-6264 / 6242</div>
-        <div class="oss-description">Improved InfluxDB and Neo4j interpreter code paths with safer
-          parsing, defaults, and maintainability-focused cleanup.
-        </div>
-      </div>
-      <div class="oss-item">
-        <div class="oss-title">Kubernetes/website#52238</div>
-        <div class="oss-description">Sync Korean version of ingress-minikube.md to English version
+        <div class="tech-stack">
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">Docs</span>
+          <span class="tech-tag">Localization</span>
+          <span class="tech-tag">Markdown</span>
         </div>
       </div>
     </div>
@@ -912,7 +874,6 @@
 <section id="skills" class="section">
   <div class="container">
     <h2 class="section-title">Skills & Focus</h2>
-    <p class="section-subtitle">Production backend systems and AI-adjacent infrastructure</p>
 
     <div class="skills-grid">
       <div class="skill-category">
@@ -937,22 +898,22 @@
 
       <div class="skill-category">
         <div class="skill-icon">🤖</div>
-        <div class="skill-title">AI Engineering Tooling</div>
+        <div class="skill-title">AI-Assisted Engineering</div>
         <div class="skill-list">
           MCP, Context Search<br>
-          Agent Workflow Observability<br>
-          Verification Harnesses
+          Workflow Observability<br>
+          Verification Habits
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Availability Section -->
+<!-- Contact Section -->
 <section id="availability" class="section">
   <div class="container">
-    <h2 class="section-title">Availability</h2>
-    <p class="section-subtitle">Open to U.S. backend, platform, and infrastructure software engineering roles</p>
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">Happy to talk about backend systems, infrastructure, or the next good problem</p>
 
     <div class="contact-grid">
       <a href="mailto:eun.h.engineer@gmail.com" class="contact-item"
@@ -961,6 +922,19 @@
         <div class="contact-title">Email</div>
         <div class="contact-link">eun.h.engineer@gmail.com</div>
       </a>
+      <a href="https://www.linkedin.com/in/eunhwa-park-20a286248/" target="_blank"
+         rel="noopener noreferrer" class="contact-item"
+         style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+        <div class="contact-icon">in</div>
+        <div class="contact-title">LinkedIn</div>
+        <div class="contact-link">Connect</div>
+      </a>
+      <a href="https://github.com/eunhwa99" target="_blank" rel="noopener noreferrer"
+         class="contact-item" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+        <div class="contact-icon">GH</div>
+        <div class="contact-title">GitHub</div>
+        <div class="contact-link">See the code</div>
+      </a>
     </div>
   </div>
 </section>
@@ -968,7 +942,7 @@
 <!-- Footer -->
 <footer>
   <div class="container">
-    <p>&copy; 2026 Eunhwa Park. Built as a living portfolio.</p>
+    <p>&copy; 2026 Eunwha Park. Built as a living portfolio.</p>
   </div>
 </footer>
 
